@@ -17,6 +17,7 @@ architecture
 code_of_conduct
 contributing
 license
+security
 tooling
 usage
 ```

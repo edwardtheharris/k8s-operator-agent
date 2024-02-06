@@ -6,7 +6,7 @@ authors:
    - name: Xander Harris
      email: xandertheharris@gmail.com
 date: 2024-08-04
-title: Kubernetes Operator Agent Helm Chart
+title: Helm Chart
 ---
 
 Documentation to be provided.
@@ -20,5 +20,5 @@ Documentation to be provided.
 
 The value for `image.repository` must be set for the chart to deploy.
 
-```{autoyaml} ./deployment/helm/k8s-agent/values.yaml
+```{autoyaml} deployment/helm/k8s-agent/values.yaml
 ```

@@ -5,3 +5,11 @@ image:
 redis-stack-server:
   redis_stack_server:
     storage_class: csi-lvm-linear
+
+service:
+  enabled: true
+  externalName: agent.breeze-blocks.net
+  type: LoadBalancer
+  port: 80
+  portName: http
+  targetPort: 8000

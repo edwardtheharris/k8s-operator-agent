@@ -112,6 +112,9 @@ The process for this follows.
    make sure that you don't unintentionally push your API key to GitHub.
    ```
 
+   You can find how to get an API key
+   [here](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
+
 5. Create a namespace for the agent.
 
    ```{code-block} shell
