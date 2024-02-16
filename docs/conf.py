@@ -8,7 +8,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 """
-import maisie_sphinx_theme
+import sphinx_bootstrap_theme
 author = 'Rudy Attias, Steve Moore, Xander Harris'
 autoyaml_root = '..'
 autoyaml_level = 10
@@ -17,8 +17,8 @@ autoyaml_level = 10
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'maisie_sphinx_theme',
     'myst_parser',
+    'sphinx_bootstrap_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.duration',
@@ -32,8 +32,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_static_path = ['_static']
-html_theme = 'maisie_sphinx_theme'
-html_theme_path = maisie_sphinx_theme.html_theme_path()
+html_theme = 'bootstrap'
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 myst_enable_extensions = [
     "amsmath",

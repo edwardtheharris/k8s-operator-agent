@@ -1,11 +1,26 @@
+###
+# ```{rubric} Dependabot Configuration
+# ```
+# ---
 # To get started with Dependabot version updates, you'll need to specify which
 # package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
+#
+# ```{note}
+# Please see [the documentation](http://tinyurl.com/2ac3pjxk) for all
+# configuration options.
+# ```
+#
+# ```{literalinclude} ../.github/dependabot.yml
+# :language: yaml
+# :start-at: "version: 2\n"
+# ```
 version: 2
+###
+# See documentation for possible values
 updates:
-- package-ecosystem: "pip" # See documentation for possible values
-  directory: "/" # Location of package manifests
+- package-ecosystem: "pip"
+  ###
+  # Location of package manifests
+  directory: "/"
   schedule:
     interval: "weekly"

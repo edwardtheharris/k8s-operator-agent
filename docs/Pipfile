@@ -10,6 +10,7 @@ pydantic = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinxcontrib-autoyaml = "*"
+sphinx-bootstrap-theme = "*"
 
 [dev-packages]
 pytest = "*"

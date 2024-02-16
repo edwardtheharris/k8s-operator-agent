@@ -33,7 +33,7 @@ permissions:
 # ```{literalinclude} ../.github/workflows/docs.yml
 # :caption: .github/workflows/docs.yml#jobs
 # :language: yaml
-# :start-at: " jobs:\n"
+# :start-at: "jobs:\n"
 # :end-before: "  ###\n"
 # ```
 jobs:
