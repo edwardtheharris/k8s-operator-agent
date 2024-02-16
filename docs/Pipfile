@@ -4,13 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+maisie-sphinx-theme = "*"
+myst-parser = {extras = ["linkify"], version = "*"}
+pydantic = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
-pydantic = "*"
-myst-parser = {extras = ["linkify"], version = "*"}
 sphinxcontrib-autoyaml = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.11"
+pytest = "*"
+pytest-sphinx = "*"

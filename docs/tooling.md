@@ -1,7 +1,10 @@
 ---
 abstract: >
     This document requires the tooling required for the k8s operator agent.
-authors: Rudy Attias, Steve Moore, Xander Harris
+authors:
+    - Rudy Attias
+    - Steve Moore
+    - Xander Harris
 title: K8s Operator Agent Tooling
 ---
 
@@ -24,9 +27,39 @@ documentation is its
 [Python](https://python.langchain.com/docs/get_started/introduction)
 implementation
 
-## CI/CD
+## GitHub Actions
 
-This is handled with GitHub Actions.
+Integration and delivery is done using GitHub Actions. The following actions
+are used.
+
+### CI
+
+This workflow builds and pushes a container image.
+
+```{autoyaml} .github/workflows/ci.yml
+```
+
+### Documentation
+
+This workflow builds and deploys the documentation site to GitHub Pages for
+pull requests and pushes to the main branch.
 
 ```{autoyaml} .github/workflows/docs.yml
+```
+
+### CodeQL
+
+This workflow checks the quality of the code and provides a report.
+
+```{autoyaml} .github/workflows/codeql.yml
+```
+
+### DependaBot
+
+Dependabot automatically creates PRs when software is out of date.
+
+```{autoyaml} .github/dependabot.yml
+```
+
+```{sectionauthor} Xander Harris <xandertheharris@gmail.com>
 ```
