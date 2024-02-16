@@ -1,14 +1,34 @@
+###
+# ```{rubric} Continuous Integration Workflow
+# ```
+# ---
+# GitHub Action for some very basic integration tasks.
+#
+# ```{literalinclude} ../.github/workflows/ci.yml
+# :caption: .github/workflows/ci.yml#name
+# :language: yaml
+# :start-at: "name: CI\n"
+# :end-before: "###\n"
+# ```
 name: CI
-
 on:
   push:
     branches:
       - main
-
 env:
-  REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-
+  REGISTRY: ghcr.io
+###
+# ```{rubric} CI jobs
+# ```
+# ---
+# Define the jobs that run in the CI process.
+#
+# ```{literalinclude} ../.github/workflows/ci.yml
+# :caption: .github/workflows/ci.yml#jobs
+# :language: yaml
+# :start-at: "jobs:\n"
+# ```
 jobs:
   build:
     runs-on: ubuntu-latest

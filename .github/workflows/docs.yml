@@ -1,18 +1,21 @@
 ###
-# ```{rubric} Deploy Docs GHA
+# ```{rubric} Deploy Documentation
 # ```
 # ---
 # GitHub Actions configuration to deploy pages.
 #
 # ```{literalinclude} ../.github/workflows/docs.yml
 # :language: yaml
-# :caption: .github/workflows/docs.yml
-# :start-at: "name: Deploy Docs\n"
-# :end-before: "  ###\n"
+# :caption: .github/workflows/docs.yml#name
+# :start-at: "name: Deploy Documentation\n"
+# :end-before: "###\n"
 # ```
-name: Deploy Docs
+name: Deploy Documentation
 on:
   pull_request:
+    branches:
+      - main
+  push:
     branches:
       - main
   workflow_dispatch: {}
@@ -21,24 +24,19 @@ permissions:
     issues: read
     checks: write
     pull-requests: write
-
 ###
 # ```{rubric} Jobs
 # ```
 # ---
 # Define jobs to deploy to pages.
+#
+# ```{literalinclude} ../.github/workflows/docs.yml
+# :caption: .github/workflows/docs.yml#jobs
+# :language: yaml
+# :start-at: " jobs:\n"
+# :end-before: "  ###\n"
+# ```
 jobs:
-  ###
-  # ```{rubric} Build Pages
-  # ```
-  # ---
-  # Build pages site and upload an artifact
-  #
-  # ```{literalinclude} ../.github/workflows/docs.yml
-  # :language: yaml
-  # :start-at: "  build:\n"
-  # :end-before: "  ###\n"
-  # ```
   build:
     runs-on: ubuntu-20.04
     permissions:
@@ -64,12 +62,13 @@ jobs:
         with:
           path: './docs/deploy'
   ###
-  # ```{rubric} Deploy Pages
+  # ```{rubric} Deploy to pages
   # ```
   # ---
   # Download the artifact and deploy to pages.
   #
   # ```{literalinclude} ../.github/workflows/docs.yml
+  # :caption: .github/workflows/docs.yml#jobs.pages
   # :language: yaml
   # :start-at: "  pages:\n"
   # ```
