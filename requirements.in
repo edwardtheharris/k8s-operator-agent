@@ -7,6 +7,6 @@ langchain-community
 langchain-experimental
 langserve
 sse_starlette
-pydantic==2.6.1
+pydantic==2.6.3
 duckduckgo-search
 redis
