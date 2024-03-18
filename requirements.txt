@@ -7,10 +7,10 @@ certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
-curl-cffi==0.6.0b9
+curl-cffi==0.6.2
 dataclasses-json==0.6.4
 distro==1.9.0
-duckduckgo-search==4.4.3
+duckduckgo-search==5.1.0
 fastapi==0.109.2
 frozenlist==1.4.1
 greenlet==3.0.3
@@ -35,7 +35,6 @@ lxml==5.1.0
 marshmallow==3.20.2
 multidict==6.0.5
 mypy-extensions==1.0.0
-nest-asyncio==1.6.0
 numpy==1.26.4
 openai==1.11.1
 orjson==3.9.13
