@@ -29,7 +29,7 @@ langchain-community==0.0.17
 langchain-core==0.1.19
 langchain-experimental==0.0.51
 langchain-openai==0.0.6
-langserve==0.0.41
+langserve==0.0.51
 langsmith==0.0.86
 lxml==5.1.0
 marshmallow==3.20.2
