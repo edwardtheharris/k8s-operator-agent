@@ -1,7 +1,7 @@
 ---
 abstract: This is the k8s operator agent usage guide.
 authors: Rudy Attias, Steve Moore, Xander Harris
-title: K8s Operator Agent Usage
+title: Usage Guide
 ---
 
 ## Path of minimum time sailed
