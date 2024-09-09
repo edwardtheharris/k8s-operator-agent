@@ -1,2 +1,7 @@
 image:
   repository: edwardtheharris/agent
+  tag: 0.0.1-2024-09-09-00
+
+redis-stack-server:
+  redis_stack_server:
+    storage_class: csi-lvm-linear
