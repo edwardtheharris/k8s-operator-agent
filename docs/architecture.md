@@ -1,6 +1,10 @@
 ---
 abstract: This document describes the architecture of the k8s operator agent.
-authors: Rudy Attias, Steve Moore, Xander Harris
+authors:
+  - name: Rudy Attias
+  - name: Steve Moore
+  - name: Xander Harris
+    email: xandertheharris@proton.me
 title: K8s Operator Agent Architecture
 ---
 

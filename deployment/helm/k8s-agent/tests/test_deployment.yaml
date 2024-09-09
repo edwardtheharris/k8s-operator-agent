@@ -1,0 +1,128 @@
+###
+# ```{rubric} Unit Tests for Agent Deployment
+# ```
+# ---
+# Source: deployment/helm/k8s-agent/tests/test_deployment.yaml
+#
+# ```{literalinclude} deployment/helm/k8s-agent/tests/test_deployment.yaml
+# :language: yaml
+# ```
+suite: deployment
+release:
+  name: agent
+templates:
+- k8s-agent/templates/deployment.yaml
+values:
+- values.yaml
+
+tests:
+- it: Should create a Deployment named 'agent-k8s-agent' with correct metadata
+  asserts:
+  - equal:
+      path: metadata.name
+      value: agent-k8s-agent
+  - equal:
+      path: metadata.labels.helm\.sh/chart
+      value: k8s-agent-0.1.0
+  - equal:
+      path: metadata.labels.app\.kubernetes\.io/name
+      value: k8s-agent
+  - equal:
+      path: metadata.labels.app\.kubernetes\.io/instance
+      value: agent
+  - equal:
+      path: metadata.labels.app\.kubernetes\.io/managed-by
+      value: Helm
+  - equal:
+      path: metadata.labels.app\.kubernetes\.io/version
+      value: "1.16.0"
+
+- it: Should have a correct selector for the Deployment
+  asserts:
+  - equal:
+      path: spec.selector.matchLabels.app\.kubernetes\.io/name
+      value: k8s-agent
+  - equal:
+      path: spec.selector.matchLabels.app\.kubernetes\.io/instance
+      value: agent
+
+- it: Should configure the Pod template metadata and labels
+  asserts:
+  - equal:
+      path: spec.template.metadata.annotations.checksum/secret
+      value: 6af261f354fd86a07de62d950d8b7257890dc8308b97b3e382f42a6427d9fe94
+  - equal:
+      path: spec.template.metadata.labels.helm\.sh/chart
+      value: k8s-agent-0.1.0
+  - equal:
+      path: spec.template.metadata.labels.app\.kubernetes\.io/name
+      value: k8s-agent
+  - equal:
+      path: spec.template.metadata.labels.app\.kubernetes\.io/instance
+      value: agent
+  - equal:
+      path: spec.template.metadata.labels.app\.kubernetes\.io/managed-by
+      value: Helm
+  - equal:
+      path: spec.template.metadata.labels.app\.kubernetes\.io/version
+      value: "1.16.0"
+
+- it: Should configure the containers correctly
+  asserts:
+  - equal:
+      path: spec.template.spec.containers[0].name
+      value: agent-k8s-agent
+  - equal:
+      path: spec.template.spec.containers[0].image
+      value: edwardtheharris/agent:latest
+  - equal:
+      path: spec.template.spec.containers[0].imagePullPolicy
+      value: IfNotPresent
+  - equal:
+      path: spec.template.spec.containers[0].env[0].name
+      value: NODE_NAME
+  - equal:
+      path: spec.template.spec.containers[0].env[0].valueFrom.fieldRef.fieldPath
+      value: spec.nodeName
+  - equal:
+      path: spec.template.spec.containers[0].env[1].name
+      value: POD_NAME
+  - equal:
+      path: spec.template.spec.containers[0].env[1].valueFrom.fieldRef.fieldPath
+      value: metadata.name
+  - equal:
+      path: spec.template.spec.containers[0].env[2].name
+      value: POD_NAMESPACE
+  - equal:
+      path: spec.template.spec.containers[0].env[2].valueFrom.fieldRef.fieldPath
+      value: metadata.namespace
+  - equal:
+      path: spec.template.spec.containers[0].env[3].name
+      value: POD_IP
+  - equal:
+      path: spec.template.spec.containers[0].env[3].valueFrom.fieldRef.fieldPath
+      value: status.podIP
+  - equal:
+      path: spec.template.spec.containers[0].env[4].name
+      value: POD_SERVICE_ACCOUNT
+  - equal:
+      path: spec.template.spec.containers[0].env[4].valueFrom.fieldRef.fieldPath
+      value: spec.serviceAccountName
+  - equal:
+      path: spec.template.spec.containers[0].env[5].name
+      value: REDIS_URL
+  - equal:
+      path: spec.template.spec.containers[0].env[5].valueFrom.secretKeyRef.name
+      value: agent-k8s-agent
+  - equal:
+      path: spec.template.spec.containers[0].env[5].valueFrom.secretKeyRef.key
+      value: REDIS_URL
+
+- it: Should set the correct termination grace period and service account
+  asserts:
+  - equal:
+      path: spec.template.spec.terminationGracePeriodSeconds
+      value: 5
+  - equal:
+      path: spec.template.spec.serviceAccountName
+      value: agent-k8s-agent

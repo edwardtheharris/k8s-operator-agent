@@ -14,6 +14,9 @@ with the k8s cluster directly.
 
 ```{toctree}
 architecture
+code_of_conduct
+contributing
+license
 tooling
 usage
 ```

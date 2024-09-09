@@ -2,7 +2,7 @@
 abstract: >
     This document requires the tooling required for the k8s operator agent.
 authors: Rudy Attias, Steve Moore, Xander Harris
-title: K8s Operator Agent Tooling
+title: Tooling
 ---
 
 ## Python
