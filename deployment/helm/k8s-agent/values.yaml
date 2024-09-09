@@ -22,6 +22,7 @@ command: null
 args: []
 envVars:
   REDIS_URL: "redis://redis-stack-server:6379"
+  OPENAI_API_KEY: ""
   # GOOGLE_APPLICATION_CREDENTIALS: /absolute/path/credentials.json
 files: {}
 # /absolute/path/credentials.json:

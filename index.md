@@ -66,5 +66,64 @@ Kubernetes
    information is available [here](https://kubernetes.io).
 ```
 
+## Usage for Bare Metal Deployment
+
+The process for this follows.
+
+1. Build the agent image and push it to a public or local image repository.
+
+   ```{code-block} shell
+   docker build -t dockerhubuser/agent:0.0.1 .
+   ```
+
+2. Configure the `redis-stack` application's required storage class settings.
+
+   ```{code-block} yaml
+   :caption: values.yaml
+
+   # This is necessary only if you need to override the
+   # default `hostpath` storageClass.
+   redis-stack-server:
+     redis_stack_server:
+       storage_class: csi-lvm-linear
+   ```
+
+3. Configure the image repository and tag settings.
+
+   ```{code-block} yaml
+   :caption: values.yaml
+
+   image:
+     repository: dockerhubuser/agent
+     tag: 0.0.1
+   ```
+
+4. Obtain an OpenAPI API key and configure its value for the deployment.
+
+   ```{code-block} yaml
+   :caption: secrets/values.yaml
+
+   envVars:
+     OPENAI_API_KEY: base64-encoded-api-key
+   ```
+
+   ```{admonition} .gitignore
+   Double check that the git ignore file contains `secrets` or `secrets/` to
+   make sure that you don't unintentionally push your API key to GitHub.
+   ```
+
+5. Create a namespace for the agent.
+
+   ```{code-block} shell
+   kubectl create ns agent
+   ```
+
+6. Deploy the agent with Helm using the values shown above.
+
+   ```{code-block} shell
+   helm upgrade --install -n agent agent deployment/helm/k8s-agent \
+      -f secrets/values.yaml -f values.yaml
+   ```
+
 ```{sectionauthor} Xander Harris <xandertheharris@gmail.com>
 ```

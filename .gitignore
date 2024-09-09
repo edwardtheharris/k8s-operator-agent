@@ -6,6 +6,7 @@ __pycache__/
 .gnupg
 reflog
 deployment/helm/k8s-agent/charts
+secrets/
 
 # C extensions
 *.so
