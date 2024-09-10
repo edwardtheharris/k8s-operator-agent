@@ -1,3 +1,4 @@
+"""Prompts module."""
 SYSTEM_PROMPT = """
 Act as an advanced AI system specialized in Kubernetes cluster management.
 ```CurrentClusterState

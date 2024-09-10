@@ -9,6 +9,8 @@ date: 2024-08-04
 title: Readme
 ---
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=edwardtheharris_k8s-operator-agent&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=edwardtheharris_k8s-operator-agent)
+
 Kubernetes Operator Agent
 
 ## Development

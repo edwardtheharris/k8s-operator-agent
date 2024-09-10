@@ -43,15 +43,19 @@ prompt = ChatPromptTemplate.from_messages(
 
 
 class ChatRequest(BaseModel):
+    """Define a ChatRequest object."""
+
     input: str
     chat_history: Optional[List[Dict[str, str]]]
 
 
 class Output(BaseModel):
+    """Define an Output object."""
     output: str
 
 
 def serialize_history(request: ChatRequest):
+    """Serialize the history of a conversation."""
     chat_history = request["chat_history"] or []
     converted_chat_history = []
     for message in chat_history:

@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+duckduckgo-search = "*"
 fastapi = "*"
 gitpython = "*"
 hypercorn = "*"
@@ -15,7 +16,6 @@ langserve = "*"
 langsmith = "*"
 loguru = "*"
 pipenv = "*"
-duckduckgo-search = "*"
 sse-starlette = "*"
 
 [dev-packages]
@@ -26,6 +26,7 @@ myst-parser = {extras = ["linkify"], version = "*"}
 pylint = "*"
 pylint-junit = "*"
 pytest = "*"
+pytest-asyncio = "*"
 pytest-cov = "*"
 pytest-pylint = "*"
 sphinx = "*"
@@ -33,5 +34,5 @@ sphinx-autobuild = "*"
 sphinx-book-theme = "*"
 sphinx-design = "*"
 sphinxemoji = "*"
+tox = "*"
 version-query = "*"
-pytest-asyncio = "*"

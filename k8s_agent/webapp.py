@@ -5,7 +5,7 @@ import asyncio
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+# from fastapi.staticfiles import StaticFiles
 
 from hypercorn.asyncio import serve
 from hypercorn.config import Config
