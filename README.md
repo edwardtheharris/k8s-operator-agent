@@ -16,6 +16,11 @@ Kubernetes Operator Agent
 This project uses [Skaffold](https://skaffold.dev/) and [Helm](https://helm.sh/)
 for development. Please make sure you have them installed on your machine.
 
+### Python
+
+The main code is written in Python, which may be formatted with either
+PyDantic or Black.
+
 ### Prerequisites
 
 1. Access to a running Kubernetes cluster or the ability to create one.

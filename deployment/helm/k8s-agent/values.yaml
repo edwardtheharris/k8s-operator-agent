@@ -1,29 +1,21 @@
-# Global overrides for sub chart usage
-global:
-  labels: {}
-  image: {}
-  envVars: {}
-  files: {}
-  volumes: []
-  serviceAccount:
-    create: true
-  monitoring: {}
-  service: {}
-  affinity: {}
-# Can be one of ''|Deployment|StatefulSet|DaemonSet
-workloadType: Deployment
-labels: {}
-nameOverride: ""
-fullnameOverride: ""
-
-### Container Variables
-image: {}
-command: null
+###
+# ```{rubric} Pod Affinity Settings
+# ```
+# ---
+# Set affinity for pod node selection.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "affinity: {}\n"
+# ```
+affinity: {}
 args: []
+command: null
 envVars:
   REDIS_URL: "redis://redis-stack-server:6379"
   OPENAI_API_KEY: ""
   # GOOGLE_APPLICATION_CREDENTIALS: /absolute/path/credentials.json
+extraContainers: []
 files: {}
 # /absolute/path/credentials.json:
 #   {
@@ -33,45 +25,33 @@ files: {}
 #     "client_email": "some-client@some-project.iam.gserviceaccount.com",
 #     "client_id": "01010101010101",
 #   }
+fullnameOverride: ""
+###
+# ```{rubric} Global Overrides
+# ```
+# ---
+# Global overrides for sub chart usage
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "global:\n"
+# ```
+global:
+  affinity: {}
+  envVars: {}
+  files: {}
+  image: {}
+  labels: {}
+  monitoring: {}
+  service: {}
+  serviceAccount:
+    create: true
+  volumes: []
 
-securityContext: {}
-# capabilities:
-#   drop:
-#   - ALL
-# readOnlyRootFilesystem: true
-# runAsNonRoot: true
-# runAsUser: 1000
-
-resources: {}
-# limits:
-#   cpu: 100m
-#   memory: 128Mi
-# requests:
-#   cpu: 100m
-#   memory: 128Mi
-
+### Container Variables
+image: {}
 ### Pod Variables
 imagePullSecrets: []
-serviceAccount:
-  create: false
-  name: ""
-volumes: []
-extraContainers: []
-podSecurityContext: {}
-# fsGroup: 2000
-nodeSelector: {}
-tolerations: []
-affinity: {}
-
-### Additional Configuration
-replicaCount: 1
-pvcs: []
-service:
-  enabled: false
-  type: ClusterIP
-  # port: 80
-  # portName: http
-
 ingress:
   enabled: false
   annotations: {}
@@ -84,7 +64,47 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+labels: {}
+nameOverride: ""
+nodeSelector: {}
+podSecurityContext: {}
+# fsGroup: 2000
 
+
+
+pvcs: []
+resources: {}
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+securityContext: {}
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
+serviceAccount:
+  create: false
+  name: ""
+tolerations: []
+
+service:
+  enabled: false
+  type: ClusterIP
+  # port: 80
+  # portName: http
+
+
+### Additional Configuration
 redis-stack-server:
   redis_stack_server:
     storage_class: "hostpath"
+replicaCount: 1
+volumes: []
+# Can be one of ''|Deployment|StatefulSet|DaemonSet
+workloadType: Deployment

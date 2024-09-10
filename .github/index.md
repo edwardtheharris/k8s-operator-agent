@@ -20,6 +20,13 @@ The following workflows are in use by this repository.
 ```{autoyaml} .github/workflows/codeql.yml
 ```
 
+### Coveralls Workflow
+
+[![Coverage Status](https://coveralls.io/repos/github/edwardtheharris/k8s-operator-agent/badge.svg?branch=main)](https://coveralls.io/github/edwardtheharris/k8s-operator-agent?branch=main)
+
+```{autoyaml} .github/workflows/coveralls.yml
+```
+
 ### Documentation Workflow
 
 [![Documentation](https://github.com/edwardtheharris/helm-template/actions/workflows/documentation.yml/badge.svg)](https://github.com/edwardtheharris/helm-template/actions/workflows/documentation.yml)

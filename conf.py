@@ -12,57 +12,60 @@ import sys
 from pathlib import Path
 import version_query
 
-sys.path.append(str(Path('./k8s_agent').resolve()))
+sys.path.append(str(Path("./k8s_agent").resolve()))
+
 
 def get_release():
     """Query the current release for the project."""
     try:
-        repo_path = Path('.')
+        repo_path = Path(".")
         ret_value = version_query.git_query.query_git_repo(repo_path).to_str()
     except ValueError:
-        ret_value = '0.0.1'
+        ret_value = "0.0.1"
     return ret_value
 
-author = 'Rudy Attias'
+
+author = "Rudy Attias"
 autoyaml_root = "."
 autoyaml_doc_delimiter = "###"
 autoyaml_comment = "#"
 autoyaml_level = 10
 autoyaml_safe_loader = True
-copyright = '2024, Rudy Attias'
+copyright = "2024, Rudy Attias"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 exclude_patterns = [
-    '_build',
-    'Thumbs.db',
-    '.DS_Store',
-    '.venv/*',
-    '.tmp/*',
-    '.pytest_cache/*',
-    'deployment/helm/k8s-agent/templates/NOTES.txt',
-    'resources/templates/NOTES.txt',
+    "requirements.txt",
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    ".venv/*",
+    ".tmp/*",
+    ".pytest_cache/*",
+    "deployment/helm/k8s-agent/templates/NOTES.txt",
+    "resources/templates/NOTES.txt",
 ]
 
 extensions = [
-    'myst_parser',
-    'sphinx_design',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.githubpages',
-    'sphinx.ext.intersphinx',
-    'sphinxcontrib.autoyaml',
+    "myst_parser",
+    "sphinx_design",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.githubpages",
+    "sphinx.ext.intersphinx",
+    "sphinxcontrib.autoyaml",
 ]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_logo = '_static/img/logo/helm.png'
-html_favicon = '_static/img/logo/helm.png'
-html_static_path = ['_static']
-html_theme = 'sphinx_book_theme'
-myst_dmath_double_inline=True
+html_logo = "_static/img/logo/helm.png"
+html_favicon = "_static/img/logo/helm.png"
+html_static_path = ["_static"]
+html_theme = "sphinx_book_theme"
+myst_dmath_double_inline = True
 myst_enable_extensions = [
     "amsmath",
     "attrs_block",
@@ -81,15 +84,15 @@ myst_enable_extensions = [
     "tasklist",
 ]
 myst_title_to_header = True
-project = 'Template Helm Chart'
+project = "Template Helm Chart"
 rst_epilog = """
 .. sectionauthor:: Xander Harris <xandertheharris@gmail.com>
 """
 release = get_release()
-show_authors=True
+show_authors = True
 source_suffix = {
-    '.md': 'markdown',
-    '.rst': 'restructuredtext',
-    '.txt': 'markdown',
+    ".md": "markdown",
+    ".rst": "restructuredtext",
+    ".txt": "markdown",
 }
-templates_path = ['_templates']
+templates_path = ["_templates"]
