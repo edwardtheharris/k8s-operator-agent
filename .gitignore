@@ -4,8 +4,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 .gnupg
+.coverage-reports/
 reflog
 deployment/helm/k8s-agent/charts
+markdownlint-cli2-junit.xml
+pylint.xml
+results.xml
 secrets/
 
 # C extensions
