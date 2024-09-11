@@ -10,6 +10,7 @@ title: Readme
 ---
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=edwardtheharris_k8s-operator-agent&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=edwardtheharris_k8s-operator-agent)
+[![Coverage Status](https://coveralls.io/repos/github/edwardtheharris/k8s-operator-agent/badge.svg)](https://coveralls.io/github/edwardtheharris/k8s-operator-agent)
 
 Kubernetes Operator Agent
 
