@@ -46,4 +46,5 @@ def test_version_init():
     """Test if __version__ is initialized correctly."""
     with patch("k8s_agent.get_version", return_value="1.2.3"):
         from k8s_agent import __version__
-        assert __version__ == version_query.Version.from_str("0.0.1.dev1")
+        assert isinstance(__version__, str)
+        assert __version__ == version_query.Version.from_str("0.0.1").to_str()

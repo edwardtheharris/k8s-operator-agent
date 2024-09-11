@@ -6,3 +6,7 @@ requirements-dev.*
 *.ipynb
 *.in
 *.pyc
+_build/
+.github/
+.gnupg/
+.venv/
