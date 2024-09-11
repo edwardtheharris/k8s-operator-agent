@@ -2,14 +2,21 @@ image:
   repository: edwardtheharris/agent
   tag: 0.0.1-2024-09-09-00
 
+k8s-agent:
+  service:
+    enabled: true
+    externalName: agent.breeze-blocks.net
+    type: LoadBalancer
+    port: 80
+    portName: http
+    targetPort: 8000
+    ports:
+    - port: 443
+      name: https
+      targetPort: 8000
+      protocol: http
+
 redis-stack-server:
   redis_stack_server:
     storage_class: csi-lvm-linear
 
-service:
-  enabled: true
-  externalName: agent.breeze-blocks.net
-  type: LoadBalancer
-  port: 80
-  portName: http
-  targetPort: 8000

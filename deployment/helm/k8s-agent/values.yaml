@@ -7,6 +7,7 @@
 # ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
 # :language: yaml
 # :start-at: "affinity: {}\n"
+# :end-before: "###\n"
 # ```
 affinity: {}
 args: []
@@ -16,16 +17,48 @@ envVars:
   OPENAI_API_KEY: ""
   # GOOGLE_APPLICATION_CREDENTIALS: /absolute/path/credentials.json
 extraContainers: []
+
+###
+# ```{rubric} ConfigMap File Config
+# ```
+# ---
+# Set files and contents to be added to ConfigMaps.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "files: {}\n"
+# :end-before: "###\n"
+# ```
+#
+# ```{code-block} yaml
+# :caption: files example
+#
+# files:
+#   /absolute/path/credentials.json:
+#     {
+#       "type": "service_account",
+#       "project_id": "some-project",
+#       "private_key_id": "abcdefghijklmnopqrstuvwxyz",
+#       "client_email": "some-client@some-project.iam.gserviceaccount.com",
+#       "client_id": "01010101010101",
+#     }
+# ```
 files: {}
-# /absolute/path/credentials.json:
-#   {
-#     "type": "service_account",
-#     "project_id": "some-project",
-#     "private_key_id": "abcdefghijklmnopqrstuvwxyz",
-#     "client_email": "some-client@some-project.iam.gserviceaccount.com",
-#     "client_id": "01010101010101",
-#   }
+
+###
+# ```{rubric} Full Name Override
+# ```
+# ---
+# Set the full name for the deployment.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "files: {}\n"
+# :end-before: "###\n"
+# ```
+#
 fullnameOverride: ""
+
 ###
 # ```{rubric} Global Overrides
 # ```
@@ -35,6 +68,7 @@ fullnameOverride: ""
 # ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
 # :language: yaml
 # :start-at: "global:\n"
+# :end-before: "###\n"
 # ```
 global:
   affinity: {}
@@ -48,15 +82,61 @@ global:
     create: true
   volumes: []
 
-### Container Variables
-image: {}
-### Pod Variables
+###
+# ```{rubric} Deployment Image
+# ```
+# ---
+# Set the image repository and tag.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "image:\n"
+# :end-before: "###\n"
+# ```
+image:
+  repository: ""
+  tag: ""
+
+###
+# ```{rubric} Image Pull Secrets
+# ```
+# ---
+# A list of secrets containing container registry logins.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "global:\n"
+# :end-before: "###\n"
+# ```
 imagePullSecrets: []
+
+###
+# ```{rubric} Ingress Configuration
+# ```
+# ---
+# Configure service exposure to outside networks.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "ingress:\n"
+# :end-before: "###\n"
+# ```
+#
+# ```{code-block} yaml
+# :caption: ingress example
+#
+# enabled: true
+# annotations:
+#   kubernetes.io/ingress.class: nginx
+#   kubernetes.io/tls-acme: "true"
+# hosts:
+# - host: chart-example.local
+#   paths:
+#   - 
+# ```
 ingress:
   enabled: false
   annotations: {}
-  # kubernetes.io/ingress.class: nginx
-  # kubernetes.io/tls-acme: "true"
   hosts:
   - host: chart-example.local
     paths: []
@@ -64,15 +144,113 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 labels: {}
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 nameOverride: ""
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 nodeSelector: {}
-podSecurityContext: {}
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 # fsGroup: 2000
+podSecurityContext: {}
 
-
-
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 pvcs: []
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
+### Additional Configuration
+redis-stack-server:
+  redis_stack_server:
+    storage_class: "hostpath"
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
+replicaCount: 1
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 resources: {}
 # limits:
 #   cpu: 100m
@@ -81,6 +259,17 @@ resources: {}
 #   cpu: 100m
 #   memory: 128Mi
 
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 securityContext: {}
 # capabilities:
 #   drop:
@@ -88,23 +277,82 @@ securityContext: {}
 # readOnlyRootFilesystem: true
 # runAsNonRoot: true
 # runAsUser: 1000
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
+service:
+  enabled: false
+  externalName: ""
+  type: ClusterIP
+  port: ""
+  portName: ""
+  targetPort: ""
+  ports:
+  - port: ""
+    protocol: ""
+    targetPort: ""
+    name: ""
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 serviceAccount:
   create: false
   name: ""
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 tolerations: []
 
-service:
-  enabled: false
-  type: ClusterIP
-  # port: 80
-  # portName: http
-
-
-### Additional Configuration
-redis-stack-server:
-  redis_stack_server:
-    storage_class: "hostpath"
-replicaCount: 1
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 volumes: []
+
+###
+# ```{rubric} Labels
+# ```
+# ---
+# Additional labels to apply to deployed resources.
+#
+# ```{literalinclude} /deployment/helm/k8s-agent/values.yaml
+# :language: yaml
+# :start-at: "labels: {}\n"
+# :end-before: "###\n"
+# ```
 # Can be one of ''|Deployment|StatefulSet|DaemonSet
 workloadType: Deployment

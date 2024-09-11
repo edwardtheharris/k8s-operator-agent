@@ -1,4 +1,9 @@
-"""Test module for the web application."""
+"""Test module for the Kubernetes Operator Agent web application.
+
+This module contains unit tests to verify the functionality of the web
+application, including root path redirection, CORS middleware
+configuration, route addition, and the server's start behavior.
+"""
 import asyncio
 from unittest.mock import patch
 from unittest.mock import AsyncMock
@@ -15,7 +20,14 @@ client = TestClient(app)
 
 
 def test_root_redirect():
-    """Test if the root path ("/") redirects to /docs."""
+    """Test if the root path ("/") redirects to the /docs endpoint.
+
+    This function tests whether accessing the root path correctly
+    redirects the user to the API documentation at /docs.
+
+    :var requests.Response response:
+       Ensure the route is not missing
+    """
     response = client.get("/")
     assert response.status_code == 200  # Temporary Redirect
     # print(response.__dict__)
@@ -23,7 +35,14 @@ def test_root_redirect():
 
 
 def test_cors_configuration():
-    """Test if the CORS middleware is applied with the correct settings."""
+    """Test if the CORS middleware is applied with the correct settings.
+
+    This test verifies whether the CORS middleware is correctly applied,
+    by sending an OPTIONS request and checking for the expected response.
+
+    :var requests.Response response:
+       Ensure the route is not missing
+    """
     response = client.options("/some-path")
     assert response.status_code == 404
     # assert response.headers["access-control-allow-origin"] == "*"
@@ -33,15 +52,35 @@ def test_cors_configuration():
 
 @patch("k8s_agent.agent.executor")
 def test_routes_added(mock_executor):
-    """Test if the add_routes function adds routes correctly."""
+    """Test if the add_routes function adds the /k8s-agent route correctly.
+
+    This test checks whether the /k8s-agent route is added successfully
+    and returns a response other than 404, indicating the route exists.
+
+    :var requests.Response response:
+       Ensure the route is not missing
+    :param AsyncMock mock_executor:
+       A mocked AsyncIO object.
+    """
     response = mock_executor.client.get("/k8s-agent")
-    assert response.status_code != 404  # Ensure the route is not missing
+    assert response.status_code != 404
 
 
 @pytest.mark.asyncio
 @patch("k8s_agent.webapp.serve", new_callable=AsyncMock)
 async def test_start(mock_serve, config):
-    """Test if the start function configures and starts the Hypercorn server."""
+    """Test if the start function configures and starts the Hypercorn server.
+
+    This function tests whether the start function correctly sets up and
+    starts the Hypercorn server using the expected settings. It also
+    checks whether the server is configured with the correct port,
+    reloader, and access log settings.
+
+    :param AsyncMock mock_serve:
+       A mock object simulating the serve function.
+    :param Config config:
+       The configuration object used to start the server.
+    """
     # Mock the settings
 
     with patch("k8s_agent.settings.PORT", 8080):

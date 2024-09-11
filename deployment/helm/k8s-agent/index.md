@@ -13,7 +13,7 @@ Documentation to be provided.
 
 ## Chart
 
-```{autoyaml} ./deployment/helm/k8s-agent/Chart.yaml
+```{autoyaml} deployment/helm/k8s-agent/Chart.yaml
 ```
 
 ## Values
