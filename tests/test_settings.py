@@ -1,6 +1,5 @@
 """Kubernetes Operator Agent settings unit tests module."""
 import os
-from unittest.mock import patch
 import pytest
 
 # Import the settings module from k8s_agent
