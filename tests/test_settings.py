@@ -45,15 +45,6 @@ def test_log_level_debug():
     """
     assert LOG_LEVEL == "DEBUG"
 
-# def test_log_level_warning():
-#     """
-#     Test that LOG_LEVEL is set to WARNING when DEBUG is False.
-#     """
-#     os.environ.update({'DEBUG': 'False'})
-#     # with patch.dict(os.environ, {"DEBUG": "False"}, clear=True):
-#     from k8s_agent.settings import LOG_LEVEL
-#     assert LOG_LEVEL == "WARNING"
-
 def test_ollama_base_url():
     """
     Test that OLLAMA_BASE_URL is set to the default value.

@@ -3,6 +3,12 @@
 This module defines a FastAPI-based web application for the Kubernetes
 Operator Agent. It handles HTTP requests, includes CORS middleware, and
 defines routes to expose the agent's functionality.
+
+The following imports were removed.
+
+```{code-block} python
+from fastapi.staticfiles import StaticFiles
+```
 """
 
 import asyncio
@@ -10,7 +16,6 @@ import asyncio
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
-# from fastapi.staticfiles import StaticFiles
 
 from hypercorn.asyncio import serve
 from hypercorn.config import Config
