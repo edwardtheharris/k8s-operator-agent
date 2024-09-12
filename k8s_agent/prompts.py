@@ -1,4 +1,12 @@
-"""Prompts module."""
+"""Prompts module.
+
+This module defines the system prompt template for an advanced AI system
+specialized in Kubernetes cluster management. The prompt guides the AI
+in performing tasks related to Kubernetes operations, including managing
+resources with `helm` and `kubectl` commands.
+"""
+
+#: This defines the prompt provided to the LLM by the agent.
 SYSTEM_PROMPT = """
 Act as an advanced AI system specialized in Kubernetes cluster management.
 ```CurrentClusterState
@@ -8,8 +16,8 @@ Act as an advanced AI system specialized in Kubernetes cluster management.
 $~ kubectl get CustomResourceDefinitions  # Use kubectl explain (with --recursive=true) to query specific CustomResourceDefinitions structure
 {crds}
 
-$~ kubectl get deployments,statefulset,daemonsets,services,ingresse --all-namespaces  # Use kubectl to query and edit resources
-{kubeclt_basic_resources}
+$~ kubectl get deployments,statefulset,daemonsets,services,ingresses --all-namespaces  # Use kubectl to query and edit resources
+{kubectl_basic_resources}
 ```
 <Instructions>
 - Utilize the terminal function for execution of commands such as

@@ -13,6 +13,7 @@ from pathlib import Path
 import version_query
 
 sys.path.append(str(Path("./k8s_agent").resolve()))
+sys.path.append(str(Path(".").resolve()))
 
 
 def get_release():
@@ -51,7 +52,7 @@ exclude_patterns = [
 extensions = [
     "myst_parser",
     "sphinx_design",
-    "sphinx.ext.autodoc",
+    'sphinx.ext.autodoc',
     "sphinx.ext.autosummary",
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
@@ -61,10 +62,16 @@ extensions = [
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_logo = "_static/img/logo/helm.png"
-html_favicon = "_static/img/logo/helm.png"
+html_logo = "_static/img/logo/k8s-operator-agent.jpg"
+html_favicon = "_static/img/logo/k8s-operator-agent.jpg"
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
+intersphinx_mapping = {
+    'asyncio': ('https://pytest-asyncio.readthedocs.io/en/latest/', None),
+    'hypercorn': ('https://hypercorn.readthedocs.io/en/latest/', None),
+    'python': ('https://docs.python.org/3', None),
+    'requests': ('https://requests.readthedocs.io/en/latest/', None)
+}
 myst_dmath_double_inline = True
 myst_enable_extensions = [
     "amsmath",

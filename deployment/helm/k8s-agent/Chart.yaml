@@ -56,10 +56,10 @@ dependencies:
 #
 # ```{literalinclude} /deployment/helm/k8s-agent/Chart.yaml
 # :language: yaml
-# :start-at: "icon: file://./_static/img/logo/helm.png\n"
+# :start-at: "icon: file://./_static/img/logo/k8s-operator-agent.jpg\n"
 # :end-before: "###\n"
 # ```
-icon: file://./_static/img/logo/helm.png
+icon: file://./_static/img/logo/k8s-operator-agent.jpg
 
 ###
 # ```{rubric} Name
