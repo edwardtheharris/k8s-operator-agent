@@ -1055,20 +1055,20 @@
         },
         "pipenv": {
             "hashes": [
-                "sha256:5360835c613837423a99b8c94952b139b777b3eaabb42cb9edb34556245b4c25",
-                "sha256:ae5a83fa5b66065cebd2bd8f73f0b281b3bd202a13d58cc644f0b9765128c990"
+                "sha256:3e9556c72fda1706186edfe66b72f4eae59ff1326fc2c9a60f4a1d590a4eb7f3",
+                "sha256:f4aca545b472e5ea00bd5131ef2b9047f509c420b89e998caa1085ed06d197cb"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==2024.0.1"
+            "version": "==2024.0.2"
         },
         "platformdirs": {
             "hashes": [
-                "sha256:9e5e27a08aa095dd127b9f2e764d74254f482fef22b0970773bfba79d091ab8c",
-                "sha256:eb1c8582560b34ed4ba105009a4badf7f6f85768b30126f351328507b2beb617"
+                "sha256:50a5450e2e84f44539718293cbb1da0a0885c9d14adf21b77bae4e66fc99d9b5",
+                "sha256:d4e0b7d8ec176b341fb03cb11ca12d0276faa8c485f9cd218f613840463fc2c0"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==4.3.2"
+            "version": "==4.3.3"
         },
         "primp": {
             "hashes": [
@@ -1488,11 +1488,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:5f4c08aa4d3ebcb57a50c33b1b07e94315d7fc7230f7115e47fc99776c8ce308",
-                "sha256:95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
+                "sha256:35ab7fd3bcd95e6b7fd704e4a1539513edad446c097797f2985e0e4b960772f2",
+                "sha256:d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==74.1.2"
+            "version": "==75.1.0"
         },
         "smmap": {
             "hashes": [
